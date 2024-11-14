@@ -1,21 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../assets/LandingPage/Logo.png';
 import { Link } from 'react-router-dom';
+import { IoMdArrowDropdown } from 'react-icons/io';
 
 function Navbar() {
-  // State to manage the visibility of the menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [username, setUsername] = useState(null);
 
-  // Function to toggle the menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Fetch the username from local storage when the component mounts
+  useEffect(() => {
+    const storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, []); // Empty dependency array to run only on mount
+
+  // Logout function
+  const handleLogout = () => {
+    localStorage.removeItem('username');
+    setUsername(null);
   };
 
   return (
     <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      {/* Logo */}
-      <Link to="/">
+        {/* Logo */}
+        <Link to="/">
           <img
             src={logo}
             className="h-8 md:h-11 flex items-center space-x-3 rtl:space-x-reverse cursor-pointer"
@@ -23,15 +37,31 @@ function Navbar() {
           />
         </Link>
 
-
-        {/* Toggle Button and Sign Up */}
+        {/* Toggle Button and Sign Up/Login */}
         <div className="flex items-center space-x-3 md:order-2">
-        <Link
-            to="/signup"
-            className="text-white bg-teal-600 hover:bg-teal-700 font-medium rounded-lg text-sm px-4 py-2 text-center md:px-6 md:py-3 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
-          >
-            Sign Up
-          </Link>
+          {username ? (
+            <div className="flex items-center space-x-2">
+              {/* Avatar only for small screens */}
+              <div className="avatar">
+                <div className="w-9 rounded">
+                  <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt="User Avatar" />
+                </div>
+              </div>
+              {/* Display username on larger screens */}
+              <span className="hidden md:block text-gray-900 dark:text-white font-semibold">
+                {username}
+              </span>
+              {/* Dropdown arrow on the right */}
+              <IoMdArrowDropdown className="ml-2 text-gray-700 cursor-pointer" />
+            </div>
+          ) : (
+            <Link
+              to="/signup"
+              className="text-white bg-teal-600 hover:bg-teal-700 font-medium rounded-lg text-sm px-4 py-2 text-center md:px-6 md:py-3 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
+            >
+              Sign Up
+            </Link>
+          )}
           <button
             type="button"
             onClick={toggleMenu}
@@ -63,13 +93,13 @@ function Navbar() {
         <div
           className={`${
             isMenuOpen ? 'block' : 'hidden'
-          } w-full md:flex md:w-auto md:order-1`}
+          } w-full md:flex md:w-auto md:order-1 md:flex-row`}
           id="navbar-sticky"
         >
           <ul className="flex flex-col p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-          <li>
+            <li>
               <Link
-                to="/about" // Change to Link and use to prop for navigation
+                to="/about"
                 className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold"
                 aria-current="page"
               >
@@ -77,12 +107,12 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <a
+              <Link to="/features"
                 href="#"
                 className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold"
               >
                 Features
-              </a>
+              </Link>
             </li>
             <li>
               <a
@@ -100,14 +130,26 @@ function Navbar() {
                 Contact
               </a>
             </li>
-            <li>
-            <Link
-                to="/login"
-                className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold"
-              >
-                Login
-              </Link>
-            </li>
+            {username && ( // Only show Logout if logged in
+              <li>
+                <button
+                  onClick={handleLogout}
+                  className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold"
+                >
+                  Logout
+                </button>
+              </li>
+            )}
+            {!username && ( // Only show Login if not logged in
+              <li>
+                <Link
+                  to="/login"
+                  className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold"
+                >
+                  Login
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

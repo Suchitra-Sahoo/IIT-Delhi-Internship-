@@ -17,7 +17,12 @@ function Login() {
   const handleGoogleLogin = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        console.log('User logged in with Google:', result.user);
+        const user = result.user;
+        console.log('User logged in with Google:', user);
+        
+        // Store the username in localStorage
+        localStorage.setItem('username', user.displayName);
+
         navigate('/'); // Redirect to homepage after successful login
       })
       .catch((error) => {
@@ -30,7 +35,12 @@ function Login() {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log('User logged in with email and password:', userCredential.user);
+        const user = userCredential.user;
+        console.log('User logged in with email and password:', user);
+        
+        // Store the username in localStorage
+        localStorage.setItem('username', user.email);
+
         navigate('/'); // Redirect to homepage after successful login
       })
       .catch((error) => {
