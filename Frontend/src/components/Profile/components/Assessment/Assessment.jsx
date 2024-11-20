@@ -1,15 +1,15 @@
 import React from 'react';
-import Navbar from '../Navbar';
-import Footer from '../Footer';
-import Sidebar from './components/Sidebar';
-import ProfileContent from './components/Profile'; // Rename imported Profile component
+import Navbar from '../../../Navbar';
+import Footer from '../../../Footer';
+import Sidebar from '../Sidebar';
+import AssessmentContent from './AssessmentContent'; // Rename imported Profile component
 
-function Profile() {
+function Assessment() {
   return (
     <>
       {/* Navbar is fixed at the top */}
       <Navbar />
-
+      
       <div className="min-h-screen flex flex-col pt-16 mt-2 ">
         <div className="flex flex-grow">
           {/* Sidebar only visible on medium and larger screens */}
@@ -17,7 +17,7 @@ function Profile() {
           
           {/* ProfileContent centered on smaller screens */}
           <div className="flex-1 flex justify-center md:ml-4">
-            <ProfileContent /> {/* Display the Profile component here */}
+            <AssessmentContent /> {/* Display the Profile component here */}
           </div>
         </div>
         
@@ -28,4 +28,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Assessment;
