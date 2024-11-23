@@ -1,80 +1,97 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
+import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { IoMdHome } from "react-icons/io";
 import { IoDocumentText } from "react-icons/io5";
 import { TbReport } from "react-icons/tb";
 import { HiOutlineCube } from "react-icons/hi";
 import { IoMdSettings } from "react-icons/io";
 
-const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const sidebarRef = useRef(null);
 
-  const toggleSidebar = (e) => {
-    e.stopPropagation();
-    setIsOpen(!isOpen);
-  };
+const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
+  const sidebarRef = useRef(null);
 
   const handleClickOutside = (e) => {
     if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
-      setIsOpen(false);
+      closeSidebar(); // Close the sidebar when clicking outside
     }
   };
 
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, []);
+    if (isSidebarOpen) {
+      document.addEventListener("click", handleClickOutside);
+    } else {
+      document.removeEventListener("click", handleClickOutside);
+    }
 
-  const handleMenuItemClick = () => {
-    setIsOpen(false); // Close sidebar when a menu item is clicked
-  };
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [isSidebarOpen]);
 
   return (
-    <div className="flex">
-      {/* Toggle Button */}
-      <div className="md:hidden p-2" onClick={toggleSidebar}>
-        <button className="relative group">
-          <div className="relative flex items-center justify-center w-[18px] h-[18px] duration-200">
-            <div className="flex flex-col justify-between w-[20px] h-[20px] transform transition-all duration-300 group-focus:-rotate-[45deg] origin-center">
-              <div className="bg-black h-[2px] w-1/2 rounded transform transition-all duration-300 group-focus:-rotate-90 group-focus:h-[1px] origin-right delay-75 group-focus:-translate-y-[1px]"></div>
-              <div className="bg-black h-[1px] rounded"></div>
-              <div className="bg-black h-[2px] w-1/2 rounded self-end transform transition-all duration-300 group-focus:-rotate-90 group-focus:h-[1px] origin-left delay-75 group-focus:translate-y-[1px]"></div>
-            </div>
-          </div>
-        </button>
-      </div>
-
-      {/* Sidebar */}
+    <aside
+      ref={sidebarRef}
+      className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${
+        isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+      } sm:translate-x-0`}
+      aria-label="Sidebar"
+    >
       <div
-        ref={sidebarRef}
-        className={`bg-[#6481A8] min-h-screen w-64 text-white fixed md:relative transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-300 ease-in-out z-50`}
+        className="h-full px-3 py-4 overflow-y-auto mt-[74px]"
+        style={{ backgroundColor: "#6481A8" }}
       >
-        {/* Menu Items */}
-        <Link to="/profile" onClick={handleMenuItemClick} className="flex items-center p-4 hover:bg-[#213555] cursor-pointer mb-4">
-          <IoMdHome className="text-2xl" />
-          <span className="ml-2 text-lg">Home</span>
-        </Link>
-        <Link to="/assessment" onClick={handleMenuItemClick} className="flex items-center p-4 hover:bg-[#213555] cursor-pointer mb-4">
-          <IoDocumentText className="text-2xl" />
-          <span className="ml-2 text-lg">My Assessments</span>
-        </Link>
-        <Link to="/reports" onClick={handleMenuItemClick} className="flex items-center p-4 hover:bg-[#213555] cursor-pointer mb-4">
-          <TbReport className="text-2xl" />
-          <span className="ml-2 text-lg">Results & Reports</span>
-        </Link>
-        <Link to="/resources" onClick={handleMenuItemClick} className="flex items-center p-4 hover:bg-[#213555] cursor-pointer mb-4">
-          <HiOutlineCube className="text-2xl" />
-          <span className="ml-2 text-lg">Resources</span>
-        </Link>
-        <Link to="/settings" onClick={handleMenuItemClick} className="flex items-center p-4 hover:bg-[#213555] cursor-pointer mb-4">
-          <IoMdSettings className="text-2xl" />
-          <span className="ml-2 text-lg">Settings</span>
-        </Link>
+        <ul className="space-y-4 font-medium">
+          <li>
+            <Link
+              to="/profile"
+              onClick={closeSidebar}
+              className="flex items-center p-4 text-white rounded-lg hover:bg-[#213555] mt-10"
+            >
+              <IoMdHome className="text-2xl" />
+              <span className="ml-2">Home</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/assessment"
+              onClick={closeSidebar}
+              className="flex items-center p-4 text-white rounded-lg hover:bg-[#213555]"
+            >
+              <IoDocumentText className="text-2xl" />
+              <span className="ml-2">My Assessments</span>
+            </Link>
+          </li>
+          <li>
+          <Link
+              to="/results" 
+              onClick={closeSidebar}
+              className="flex items-center p-4 text-white rounded-lg hover:bg-[#213555]"
+            >
+              <TbReport className="text-2xl" />
+              <span className="ml-2">Results & Reports</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/resources"
+              onClick={closeSidebar}
+              className="flex items-center p-4 text-white rounded-lg hover:bg-[#213555]"
+            >
+              <HiOutlineCube className="text-2xl" />
+              <span className="ml-2">Resources</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/settings"
+              onClick={closeSidebar}
+              className="flex items-center p-4 text-white rounded-lg hover:bg-[#213555]"
+            >
+              <IoMdSettings className="text-2xl" />
+              <span className="ml-2">Settings</span>
+            </Link>
+          </li>
+        </ul>
       </div>
-    </div>
+    </aside>
   );
 };
 

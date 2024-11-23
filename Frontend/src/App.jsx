@@ -7,6 +7,14 @@ import Signup from "./components/Landing Page/components/Signup";
 import Features from "./components/Features/Features";
 import Profile from './components/Profile/Profile'
 import Assessment from "./components/Profile/components/Assessment/Assessment";
+import Results from "./components/Profile/components/Result/Results"
+import Resources from "./components/Profile/components/Resources/Resources";
+import AnalyticsReasoning from "./components/Profile/components/Resources/AnalyticsReasoning"
+import Aptitude from './components/Profile/components/Resources/Aptitude' 
+import Situational_Judgement from "./components/Profile/components/Resources/SitutationalJudgement";
+import SocialEmotionalCognitionTest from "./components/Profile/components/Resources/SocialEmotionalCognitionTest";
+import VerbalReasoning from "./components/Profile/components/Resources/VerbalReasoning";
+import TowerofHanoi from './components/Profile/components/Resources/TowerofHanoi'
 
 function App() {
   return (
@@ -19,6 +27,14 @@ function App() {
         <Route path="/features" element={<Features />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/assessment" element={<Assessment />} />
+        <Route path="/results" element={<Results />} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="/analytics-reasoning" element={<AnalyticsReasoning />} />
+        <Route path="/aptitude" element={<Aptitude />} />
+        <Route path="/situational" element={<Situational_Judgement />} />
+        <Route path="/socialemotionaltest" element={<SocialEmotionalCognitionTest />} />
+        <Route path="/verbalreasoning" element={<VerbalReasoning />} />
+        <Route path="/towerofhanoi" element={<TowerofHanoi />} />
         </Routes>
     </Router>
   );

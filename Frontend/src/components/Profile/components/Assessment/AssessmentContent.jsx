@@ -6,7 +6,7 @@ import { MdDelete } from "react-icons/md";
 const AssessmentContent = () => {
   return (
     <div className="p-4 sm:p-6 w-full">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6">Assessment Overview</h1>
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 ml-10 ">Assessment Overview</h1>
 
       {/* Create New Assessment Button */}
       <div className="mb-6">
@@ -27,7 +27,13 @@ const AssessmentContent = () => {
             <p className="text-sm text-gray-500">4 hours ago</p>
           </div>
           <div className="flex space-x-2">
-            <button className="bg-[#008080] text-white py-1 px-3 rounded text-sm sm:text-base">Mark Completed</button>
+          <button
+  className="bg-[#008080] text-white py-1 px-3 rounded text-sm sm:text-base"
+  onClick={() => window.open('http://127.0.0.1:5500/Aptitude/Test3/index.html', '_blank')}
+>
+  Mark Completed
+</button>
+
             <button className="text-3xl sm:text-4xl pl-6 sm:pl-8">
               <HiPencilSquare />
             </button>
@@ -44,7 +50,12 @@ const AssessmentContent = () => {
             <p className="text-sm text-gray-500">2 days ago</p>
           </div>
           <div className="flex space-x-2">
-            <button className="bg-[#008080] text-white py-1 px-3 rounded text-sm sm:text-base">Mark Completed</button>
+          <button
+  className="bg-[#008080] text-white py-1 px-3 rounded text-sm sm:text-base"
+  onClick={() => window.open('http://127.0.0.1:5500/Situational_Judgement/SJ/index.html', '_blank')}
+>
+  Mark Completed
+</button>
             <button className="text-3xl sm:text-4xl pl-6 sm:pl-8">
               <HiPencilSquare />
             </button>

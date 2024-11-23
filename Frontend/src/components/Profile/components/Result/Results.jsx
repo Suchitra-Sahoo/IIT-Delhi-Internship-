@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
-import Sidebar from "./components/Sidebar";
-import Navbar from "../Navbar";
-import Footer from "../Footer";
-import ProfileContent from "./components/Profile";
-import { TfiMenuAlt } from "react-icons/tfi";
+import React, { useState, useEffect, useRef } from 'react';
+import Result from './ResultContent';
+import Navbar from '../../../Navbar'
+import Footer from '../../../Footer';
+import Sidebar from '../Sidebar'; // Assuming Sidebar is a separate component
+import { TfiMenuAlt } from 'react-icons/tfi';
 
-function Profile() {
+function Results() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const sidebarButtonRef = useRef(null);
@@ -56,10 +56,10 @@ function Profile() {
         )}
 
         {/* Profile content on the right side */}
-        <div
-          className={`flex-1 bg-gray-100 ${isSidebarOpen ? "ml-0" : ""} w-full`}
-        >
-          <ProfileContent />
+        <div className={`flex-1 bg-gray-100 ${isSidebarOpen ? "ml-0" : ""} w-full`}>
+          <div className="w-full max-w-6xl mx-auto p-4">
+            <Result />
+          </div>
         </div>
       </div>
 
@@ -82,4 +82,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Results;
