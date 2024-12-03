@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Result from './ResultContent';
+import Result from './SettingContent';
 import Navbar from '../../../Navbar'
 import Footer from '../../../Footer';
 import Sidebar from '../Sidebar'; // Assuming Sidebar is a separate component
 import { TfiMenuAlt } from 'react-icons/tfi';
-import ResultContent from './ResultContent';
 
-function Results() {
+function Settings() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const sidebarButtonRef = useRef(null);
@@ -83,4 +82,4 @@ function Results() {
   );
 }
 
-export default Results;
+export default Settings;

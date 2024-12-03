@@ -16,8 +16,7 @@ function FeatureBox3() {
       {/* Body Section */}
       <div className="p-6 text-gray-600">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec orci nec quam placerat
-          cursus sed suscipit purus. Curabitur dictum, libero non pharetra ultricies, metus libero.
+        Cognitive skill testing measures an individual’s mental abilities, such as memory, reasoning, problem-solving, and attention. It provides insights into how effectively a person processes information, learns, and makes decisions, aiding in identifying potential and suitability for specific roles.
         </p>
       </div>
 

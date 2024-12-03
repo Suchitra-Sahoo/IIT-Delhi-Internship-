@@ -16,8 +16,7 @@ function FeatureBox1() {
       {/* Body Section */}
       <div className="p-6 text-gray-600">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec orci nec quam placerat
-          cursus sed suscipit purus. Curabitur dictum, libero non pharetra ultricies, metus libero.
+        The Occupational Interest Profile identifies an individual's preferences and inclinations toward various career fields. It helps align their interests with suitable industries and roles, ensuring personal fulfillment and professional success by guiding career decisions effectively.
         </p>
       </div>
 

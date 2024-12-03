@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Result from './ResultContent';
-import Navbar from '../../../Navbar'
-import Footer from '../../../Footer';
-import Sidebar from '../Sidebar'; // Assuming Sidebar is a separate component
-import { TfiMenuAlt } from 'react-icons/tfi';
-import ResultContent from './ResultContent';
+import React, { useState, useEffect, useRef } from "react";
+import Navbar from "../../../Navbar";
+import Footer from "../../../Footer";
+import Sidebar from "../Sidebar";
+import { TfiMenuAlt } from "react-icons/tfi";
+import AssessmentFormContent from "./AssessmentFormContent";
 
-function Results() {
+const AssessmentForm = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const sidebarButtonRef = useRef(null);
@@ -56,12 +55,8 @@ function Results() {
           />
         )}
 
-        {/* Profile content on the right side */}
-        <div className={`flex-1 bg-gray-100 ${isSidebarOpen ? "ml-0" : ""} w-full`}>
-          <div className="w-full max-w-6xl mx-auto p-4">
-            <Result />
-          </div>
-        </div>
+        {/* Assessment Form content */}
+       <AssessmentFormContent/>
       </div>
 
       {/* Footer at the bottom */}
@@ -76,11 +71,11 @@ function Results() {
           onClick={toggleSidebar}
           className="p-2 text-gray-600 rounded-md mt-5"
         >
-          <TfiMenuAlt className="text-2xl" />
+          <TfiMenuAlt className="text-2xl " />
         </button>
       </div>
     </div>
   );
-}
+};
 
-export default Results;
+export default AssessmentForm;

@@ -16,8 +16,7 @@ function FeatureBox2() {
       {/* Body Section */}
       <div className="p-6 text-gray-600">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec orci nec quam placerat
-          cursus sed suscipit purus. Curabitur dictum, libero non pharetra ultricies, metus libero.
+        Continuous monitoring involves the regular assessment of an individual's performance, behavior, and well-being throughout their tenure. It helps organizations identify trends, address issues proactively, and foster ongoing development for sustained growth and success.
         </p>
       </div>
 

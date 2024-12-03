@@ -15,6 +15,12 @@ import Situational_Judgement from "./components/Profile/components/Resources/Sit
 import SocialEmotionalCognitionTest from "./components/Profile/components/Resources/SocialEmotionalCognitionTest";
 import VerbalReasoning from "./components/Profile/components/Resources/VerbalReasoning";
 import TowerofHanoi from './components/Profile/components/Resources/TowerofHanoi'
+import AttentionTest from "./components/Profile/components/Resources/AttentionTest";
+import RecognitionMemoryTask from "./components/Profile/components/Resources/RecognitionMemoryTask";
+import ResilienceTest from "./components/Profile/components/Resources/ResilienceTest";
+import DeductionTest from "./components/Profile/components/Resources/DeductionTest";
+import Settings from "./components/Profile/components/Setting/Settings";
+import Form from './components/Profile/components/Assessment/AssessmentForm'
 
 function App() {
   return (
@@ -35,6 +41,13 @@ function App() {
         <Route path="/socialemotionaltest" element={<SocialEmotionalCognitionTest />} />
         <Route path="/verbalreasoning" element={<VerbalReasoning />} />
         <Route path="/towerofhanoi" element={<TowerofHanoi />} />
+        <Route path="/attention" element={<AttentionTest />} />
+        <Route path="/recognition" element={<RecognitionMemoryTask />} />
+        <Route path="/resilience" element={<ResilienceTest />} />
+        <Route path="/deduction" element={<DeductionTest />} />
+        <Route path="/setting" element={<Settings />} />
+        <Route path="/form" element={<Form />} />
+      
         </Routes>
     </Router>
   );

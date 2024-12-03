@@ -16,8 +16,7 @@ function FeatureBox2() {
       {/* Body Section */}
       <div className="p-6 text-gray-600">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec orci nec quam placerat
-          cursus sed suscipit purus. Curabitur dictum, libero non pharetra ultricies, metus libero.
+          Behavioral assessment evaluates an individual's actions, interpersonal skills, and emotional responses in various situations. It provides insights into personality traits, decision-making, and adaptability, helping organizations make informed decisions about hiring, team dynamics, and leadership potential.
         </p>
       </div>
 

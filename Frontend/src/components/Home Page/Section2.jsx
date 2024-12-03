@@ -23,8 +23,7 @@ function Section2() {
         <div className="md:w-1/2 md:pl-10 text-center md:text-left flex flex-col items-center md:items-start">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">Occupational Interest Profile</h2>
           <p className="text-gray-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
+          An Occupational Interest Profile is a tool used to assess an individual's preferences and inclinations toward various career fields and job roles. It helps identify areas of interest based on activities, tasks, and work environments, guiding individuals toward careers that align with their passions and strengths.</p>
         </div>
       </div>
     </div>

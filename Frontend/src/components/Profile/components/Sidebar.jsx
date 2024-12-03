@@ -81,7 +81,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
           </li>
           <li>
             <Link
-              to="/settings"
+              to="/setting"
               onClick={closeSidebar}
               className="flex items-center p-4 text-white rounded-lg hover:bg-[#213555]"
             >

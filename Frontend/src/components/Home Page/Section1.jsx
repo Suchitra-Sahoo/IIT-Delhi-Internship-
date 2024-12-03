@@ -28,8 +28,7 @@ function Section1() {
             Why to use this Software?
           </h1>
           <p className="text-base md:text-lg mt-4 px-4 md:px-16 lg:px-32 text-center mb-10">
-          (Benefits of the software needs to be put here) 
-          Example - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec orci nec quam placerat cursus sed suscipit purus. Curabitur dictum, libero non pharetra ultricies, metus libero tincidunt tellus, ac scelerisque tellus orci eget urna. Donec 
+          This software assesses behavior, cognition, mental health, and attitude during recruitment and throughout an employee's tenure. It helps organizations make informed hiring decisions, monitor employee well-being, and foster continuous development by providing data-driven insights into individual performance and mental health.
           </p>
         </div>
 

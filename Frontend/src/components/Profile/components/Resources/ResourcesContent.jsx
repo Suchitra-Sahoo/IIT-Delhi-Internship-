@@ -6,6 +6,10 @@ import image3 from '../../ProfilePage-Assets/illustration4.png'
 import image4 from '../../ProfilePage-Assets/illustration5.png'
 import image5 from '../../ProfilePage-Assets/illustration6.png'
 import image6 from '../../ProfilePage-Assets/illustration7.png'
+import image7 from '../../ProfilePage-Assets/illustration8.png'
+import image8 from '../../ProfilePage-Assets/illustration9.jpg'
+import image9 from '../../ProfilePage-Assets/illustration10.jpg'
+import image10 from '../../ProfilePage-Assets/illustration 11.jpg'
 
 const testingGames = [
   {
@@ -44,6 +48,32 @@ const testingGames = [
     route: "/towerofhanoi",
     image: image6,
   },
+    {
+      name: "Attention Test",
+      description: "Enhance your problem-solving and logical reasoning skills by focusing on your attention span and concentration.",
+      route: "/attention",
+      image: image7,
+    },
+    {
+      name: "Resilience Test",
+      description: "Improve your mental strength and adaptability by solving challenges that test your ability to recover from setbacks.",
+      route: "/resilience",
+      image: image8,
+    },
+    {
+      name: "Recognition Memory Task",
+      description: "Boost your memory retention and recognition abilities by recalling visual and verbal information.",
+      route: "/recognition",
+      image: image9,
+    },
+    {
+      "name": "Problem-Solving & Deduction Test",
+      "description": "Sharpen your analytical and logical thinking by solving challenging puzzles and testing your deduction skills to identify patterns and solutions.",
+      "route": "/deduction",
+      "image": image10
+    }    
+    
+ 
 ];
 
 const ResourcesContent = () => {

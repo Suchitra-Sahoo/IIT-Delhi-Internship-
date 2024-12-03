@@ -16,8 +16,7 @@ function FeatureBox1() {
       {/* Body Section */}
       <div className="p-6 text-gray-600">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec orci nec quam placerat
-          cursus sed suscipit purus. Curabitur dictum, libero non pharetra ultricies, metus libero.
+        Attitude evaluation assesses an individual's outlook, work ethic, and interpersonal approach in various scenarios. It provides insights into their positivity, adaptability, and alignment with organizational values, helping ensure cultural fit and team harmony.
         </p>
       </div>
 

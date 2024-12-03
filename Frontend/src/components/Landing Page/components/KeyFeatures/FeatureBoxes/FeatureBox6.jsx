@@ -16,8 +16,7 @@ function FeatureBox3() {
       {/* Body Section */}
       <div className="p-6 text-gray-600">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec orci nec quam placerat
-          cursus sed suscipit purus. Curabitur dictum, libero non pharetra ultricies, metus libero.
+        Detailed reporting involves providing comprehensive, data-driven insights into an individual’s performance, behavior, and progress over time. It offers in-depth analysis, highlighting strengths, areas for improvement, and trends, helping organizations make informed decisions on development, training, and performance management.
         </p>
       </div>
 

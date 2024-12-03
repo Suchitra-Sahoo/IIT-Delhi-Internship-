@@ -9,7 +9,7 @@ const VerbalReasoning = () => {
     <div className="w-screen h-screen relative">
       {/* Fullscreen Iframe */}
       <iframe
-        src="http://localhost:3014/"
+        src="http://localhost:3017/"
         title="Analytics Reasoning Game"
         className="w-full h-full"
      

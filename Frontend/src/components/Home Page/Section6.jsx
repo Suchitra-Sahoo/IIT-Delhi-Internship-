@@ -22,7 +22,7 @@ function Section6() {
         <div className="md:w-1/2 md:pl-10 text-center md:text-left flex flex-col items-center md:items-start">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">Sector Wise</h2>
           <p className="text-gray-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          We provide specialized tests across various sectors. These sector-specific assessments are designed to evaluate skills, knowledge, and competencies that are directly relevant to each industry. By tailoring the tests to the unique requirements of each sector, we help organizations assess candidates' capabilities and ensure they are well-suited for the job roles within their respective fields.
           </p>
         </div>
       </div>
