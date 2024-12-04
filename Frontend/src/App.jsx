@@ -20,7 +20,9 @@ import RecognitionMemoryTask from "./components/Profile/components/Resources/Rec
 import ResilienceTest from "./components/Profile/components/Resources/ResilienceTest";
 import DeductionTest from "./components/Profile/components/Resources/DeductionTest";
 import Settings from "./components/Profile/components/Setting/Settings";
-import Form from './components/Profile/components/Assessment/AssessmentForm'
+import Form from './components/Profile/components/Assessment/AssessmentForm';
+import Result1 from "./components/Profile/components/Result/TestResult/AptitudeTestDashboard/maindashboard";
+import RecognitionTest from "./components/Profile/components/Result/TestResult/RecognitionMemoryDashboard/maindashboard";
 
 function App() {
   return (
@@ -47,6 +49,8 @@ function App() {
         <Route path="/deduction" element={<DeductionTest />} />
         <Route path="/setting" element={<Settings />} />
         <Route path="/form" element={<Form />} />
+        <Route path="/Result1" element={<Result1 />} />
+        <Route path="/RecognitionTest" element={<RecognitionTest />} />
       
         </Routes>
     </Router>

@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Result from './ResultContent';
-import Navbar from '../../../Navbar'
-import Footer from '../../../Footer';
-import Sidebar from '../Sidebar'; // Assuming Sidebar is a separate component
+import Navbar from '../../../../../Navbar';
+import Footer from '../../../../../Footer';
+import Sidebar from '../../../Sidebar'; // Assuming Sidebar is a separate component
 import { TfiMenuAlt } from 'react-icons/tfi';
+import RecognitionTest from './RecognitionTest';
 
-
-function Results() {
+const MainDashboard = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-
   const sidebarButtonRef = useRef(null);
   const sidebarRef = useRef(null);
 
@@ -31,12 +29,12 @@ function Results() {
   // Add and remove event listener for outside clicks
   useEffect(() => {
     if (isSidebarOpen) {
-      document.addEventListener("click", closeSidebar);
+      document.addEventListener('click', closeSidebar);
     } else {
-      document.removeEventListener("click", closeSidebar);
+      document.removeEventListener('click', closeSidebar);
     }
 
-    return () => document.removeEventListener("click", closeSidebar);
+    return () => document.removeEventListener('click', closeSidebar);
   }, [isSidebarOpen]);
 
   return (
@@ -56,16 +54,17 @@ function Results() {
           />
         )}
 
-        {/* Profile content on the right side */}
-        <div className={`flex-1 bg-gray-100 ${isSidebarOpen ? "ml-0" : ""} w-full`}>
+        {/* Content on the right side */}
+        <div className={`flex-1 bg-gray-100 ${isSidebarOpen ? 'ml-0' : ''} w-full`}>
           <div className="w-full max-w-6xl mx-auto p-4">
-            <Result />
+            {/* AptitudeTest component */}
+            <RecognitionTest />
           </div>
         </div>
       </div>
 
-      {/* Footer at the bottom */}
-      <div className={`mt-auto ${isSidebarOpen ? "ml-0" : ""} w-full`}>
+      {/* Footer stays at the bottom */}
+      <div className={`mt-auto ${isSidebarOpen ? 'ml-0' : ''} w-full`}>
         <Footer />
       </div>
 
@@ -81,6 +80,6 @@ function Results() {
       </div>
     </div>
   );
-}
+};
 
-export default Results;
+export default MainDashboard;
