@@ -16,13 +16,13 @@ function FeatureBox3() {
       {/* Body Section */}
       <div className="p-6 text-gray-600">
         <p>
-        Detailed reporting involves providing comprehensive, data-driven insights into an individual’s performance, behavior, and progress over time. It offers in-depth analysis, highlighting strengths, areas for improvement, and trends, helping organizations make informed decisions on development, training, and performance management.
+        Detailed reporting involves providing comprehensive, data-driven insights into an individual’s performance, behavior, and progress over time. It offers in-depth analysis, highlighting strengths, areas for improvement and trends.
         </p>
       </div>
 
       {/* Button Section with Spacing */}
       <div className="flex justify-center mt-4 mb-6">
-        <button className="bg-teal-600 text-white py-2 px-6 rounded-lg hover:bg-teal-700 mt-5 mb-5">
+        <button className="bg-teal-600 text-white py-2 px-6 rounded-lg hover:bg-teal-700 mt-8 mb-1">
           Explore Now
         </button>
       </div>

@@ -16,13 +16,13 @@ function FeatureBox3() {
       {/* Body Section */}
       <div className="p-6 text-gray-600">
         <p>
-        Cognitive skill testing measures an individual’s mental abilities, such as memory, reasoning, problem-solving, and attention. It provides insights into how effectively a person processes information, learns, and makes decisions, aiding in identifying potential and suitability for specific roles.
+        Cognitive skill testing measures an individual’s mental abilities, such as memory, reasoning, problem-solving, and attention. It provides insights into how effectively a person processes information and learns, aiding in identifying potential and suitability for specific roles.
         </p>
       </div>
 
       {/* Button Section with Spacing */}
       <div className="flex justify-center mt-4 mb-6">
-        <button className="bg-teal-600 text-white py-2 px-6 rounded-lg hover:bg-teal-700 mt-5 mb-5">
+        <button className="bg-teal-600 text-white py-2 px-6 rounded-lg hover:bg-teal-700 mt-7 mb-3">
           Explore Now
         </button>
       </div>

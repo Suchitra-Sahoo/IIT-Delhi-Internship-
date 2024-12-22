@@ -15,14 +15,15 @@ function FeatureBox2() {
 
       {/* Body Section */}
       <div className="p-6 text-gray-600">
-        <p>
-          Behavioral assessment evaluates an individual's actions, interpersonal skills, and emotional responses in various situations. It provides insights into personality traits, decision-making, and adaptability, helping organizations make informed decisions about hiring, team dynamics, and leadership potential.
-        </p>
+      <p>
+  Behavioral assessment evaluates actions, interpersonal skills, and emotional responses in various situations. It offers insights into personality traits, decision-making, and adaptability, improve team dynamics, and identify leadership potential.
+</p>
+
       </div>
 
       {/* Button Section with Spacing */}
       <div className="flex justify-center mt-4 mb-6">
-        <button className="bg-teal-600 text-white py-2 px-6 rounded-lg hover:bg-teal-700 mt-5 mb-5">
+        <button className="bg-teal-600 text-white py-2 px-6 rounded-lg hover:bg-teal-700 mt-8 mb-5">
           Explore Now
         </button>
       </div>

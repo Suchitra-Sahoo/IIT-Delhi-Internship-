@@ -6,7 +6,8 @@ const Result1 = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/loginconnections')
+    axios
+      .get('http://localhost:5000/api/loginconnections')
       .then(response => {
         setData(response.data); // Save data to state
         setLoading(false); // Stop loading
@@ -17,23 +18,18 @@ const Result1 = () => {
       });
   }, []);
 
-  // Function to normalize score to a scale of 10
-  const normalizeScore = (score) => {
-    return ((score / 33) * 10).toFixed(2); // Normalize to 10, rounded to 2 decimal places
-  };
-
   // Function to get the best score for a user
   const getBestScore = (results) => {
     return Math.max(...results.map(result => result.score));
   };
 
-  // Function to get remark based on normalized score
-  const getRemark = (normalizedScore) => {
-    if (normalizedScore >= 9) {
+  // Function to get remark based on raw score
+  const getRemark = (score) => {
+    if (score >= 30) {
       return "Excellent!";
-    } else if (normalizedScore >= 7) {
+    } else if (score >= 23) {
       return "Good";
-    } else if (normalizedScore >= 5) {
+    } else if (score >= 17) {
       return "Average";
     } else {
       return "Needs Improvement";
@@ -59,7 +55,7 @@ const Result1 = () => {
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-semibold text-center mb-6">Aptitude Test Results</h1>
-      
+
       {loading ? (
         <div className="text-center text-xl">Loading...</div>
       ) : (
@@ -68,7 +64,7 @@ const Result1 = () => {
             <tr className="bg-gray-100 text-gray-700 text-left">
               <th className="py-3 px-4 border-b">Name</th>
               <th className="py-3 px-4 border-b">Email</th>
-              <th className="py-3 px-4 border-b">Best Score (Out of 10)</th>
+              <th className="py-3 px-4 border-b">Best Score (Out of 33)</th>
               <th className="py-3 px-4 border-b">Remark</th>
               <th className="py-3 px-4 border-b">Date</th>
               <th className="py-3 px-4 border-b">Time</th>
@@ -78,10 +74,8 @@ const Result1 = () => {
             {data.map(user => {
               // Get the best score from the user's results
               const bestScore = getBestScore(user.results);
-              // Normalize the best score
-              const normalizedScore = normalizeScore(bestScore);
-              // Get remark based on normalized score
-              const remark = getRemark(normalizedScore);
+              // Get remark based on the score
+              const remark = getRemark(bestScore);
               // Get text color for the remark
               const remarkColor = getRemarkTextColor(remark);
 
@@ -89,7 +83,7 @@ const Result1 = () => {
                 <tr key={user._id} className="hover:bg-gray-50">
                   <td className="py-3 px-4 border-b">{user.name}</td>
                   <td className="py-3 px-4 border-b">{user.email}</td>
-                  <td className="py-3 px-4 border-b">{normalizedScore} / 10</td>
+                  <td className="py-3 px-4 border-b">{bestScore} / 33</td>
                   <td className={`py-3 px-4 border-b ${remarkColor}`}>{remark}</td>
                   <td className="py-3 px-4 border-b">{new Date(user.results[0].date).toLocaleDateString()}</td>
                   <td className="py-3 px-4 border-b">{new Date(user.results[0].date).toLocaleTimeString()}</td>

@@ -10,6 +10,8 @@ import image7 from '../../ProfilePage-Assets/illustration8.png'
 import image8 from '../../ProfilePage-Assets/illustration9.jpg'
 import image9 from '../../ProfilePage-Assets/illustration10.jpg'
 import image10 from '../../ProfilePage-Assets/illustration 11.jpg'
+import image11 from '../../ProfilePage-Assets/illustration12.jpg'
+import image12 from '../../ProfilePage-Assets/illustration13.jpg'
 
 const testingGames = [
   {
@@ -71,7 +73,20 @@ const testingGames = [
       "description": "Sharpen your analytical and logical thinking by solving challenging puzzles and testing your deduction skills to identify patterns and solutions.",
       "route": "/deduction",
       "image": image10
-    }    
+    },   
+    {
+      "name": "Emotional Intelligence Test",
+      "description": "Assess your ability to recognize, understand, and manage emotions in yourself and others through scenarios and questions designed to enhance emotional awareness and empathy.",
+      "route": "/emotional",
+      "image": image11
+    },    
+    {
+      "name": "Stroop Test",
+      "description": "Test your cognitive control and reaction time by identifying the color of words that may not match their meaning, challenging your brain's ability to process conflicting information.",
+      "route": "/stroop",
+      "image": image12
+    }
+       
     
  
 ];

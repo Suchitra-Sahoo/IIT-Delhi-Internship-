@@ -22,7 +22,7 @@ function FeatureBox1() {
 
       {/* Button Section with Spacing */}
       <div className="flex justify-center mt-4 mb-6">
-        <button className="bg-teal-600 text-white py-2 px-6 rounded-lg hover:bg-teal-700 mt-5 mb-5">
+        <button className="bg-teal-600 text-white py-2 px-6 rounded-lg hover:bg-teal-700 mt-7 mb-5">
           Explore Now
         </button>
       </div>

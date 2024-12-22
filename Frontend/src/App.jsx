@@ -23,6 +23,8 @@ import Settings from "./components/Profile/components/Setting/Settings";
 import Form from './components/Profile/components/Assessment/AssessmentForm';
 import Result1 from "./components/Profile/components/Result/TestResult/AptitudeTestDashboard/maindashboard";
 import RecognitionTest from "./components/Profile/components/Result/TestResult/RecognitionMemoryDashboard/maindashboard";
+import EmotionalIntelligenceTest from "./components/Profile/components/Resources/EmotionalIntelligenceTest";
+import StroopTest from "./components/Profile/components/Resources/StroopTest";
 
 function App() {
   return (
@@ -51,7 +53,9 @@ function App() {
         <Route path="/form" element={<Form />} />
         <Route path="/Result1" element={<Result1 />} />
         <Route path="/RecognitionTest" element={<RecognitionTest />} />
-      
+        <Route path="/Emotional" element={<EmotionalIntelligenceTest />} />
+        <Route path="stroop" element={<StroopTest />} />
+         
         </Routes>
     </Router>
   );

@@ -10,11 +10,7 @@ const ResultContent = () => {
         {/* Aptitude Test Card */}
         <div className="bg-white shadow-md rounded-lg p-4 w-full">
           <div className="flex justify-end">
-            <button className="text-red-500">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+            
           </div>
           <div className="flex flex-col items-center">
             <img src={illustration1} alt="Aptitude Test" className="rounded-full w-24 h-24 mb-4" />
@@ -34,11 +30,7 @@ const ResultContent = () => {
         {/* Recognition Memory Task Card */}
         <div className="bg-white shadow-md rounded-lg p-4 w-full">
           <div className="flex justify-end">
-            <button className="text-red-500">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+           
           </div>
           <div className="flex flex-col items-center">
             <img src={illustration1} alt="Recognition Memory Task" className="rounded-full w-24 h-24 mb-4" />

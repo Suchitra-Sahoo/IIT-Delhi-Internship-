@@ -19,7 +19,7 @@ const RecognitionTest = () => {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-semibold text-center mb-6">Recognition Memory Task Test Results</h1>
+      <h1 className="text-3xl font-semibold text-center mb-6">Recognition Memory Test Results</h1>
       
       {loading ? (
         <div className="text-center text-xl">Loading...</div>
