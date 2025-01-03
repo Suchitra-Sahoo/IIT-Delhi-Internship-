@@ -11,11 +11,11 @@ const Section5 = () => {
   ];
 
   return (
-    <div className="bg-white p-6 min-h-[500px]"> {/* Set the outer background to white and add padding */}
-      <div className="bg-gray-200 rounded-3xl p-6 mx-4 min-h-[600px]"> {/* Increased height for the gray div */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"> {/* Responsive grid with gaps */}
+    <div className="bg-white p-6 min-h-[500px]"> 
+      <div className="bg-gray-200 rounded-3xl p-6 mx-4 min-h-[600px]"> 
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"> 
           {boxes.map((box, index) => (
-            <div key={index} className="bg-white p-6 rounded-2xl shadow min-h-[200px]"> {/* Use min-h instead of fixed height */}
+            <div key={index} className="bg-white p-6 rounded-2xl shadow min-h-[200px]"> 
               <h3 className="text-lg font-semibold mb-2">{box.heading}</h3>
               <p className="mb-4">{box.paragraph}</p>
               <div className="flex justify-center">

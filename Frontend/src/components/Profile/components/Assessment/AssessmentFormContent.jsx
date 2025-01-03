@@ -5,8 +5,8 @@ const AssessmentFormContent = () => {
     <div
       className={`flex-1 w-full flex items-center justify-center mt-10 mb-5`}
     >
-      <div className="bg-white p-8 rounded-lg shadow-lg border border-gray-200 w-[800px]">
-        <h2 className="text-2xl font-bold mb-6">Create New Assessment</h2>
+      <div className="bg-gray-100 p-8 rounded-lg shadow-lg border border-gray-400 w-[800px]">
+        <h2 className="text-3xl font-bold mb-6">Create New Assessment</h2>
         <form>
           <div className="mb-4">
             <label
@@ -89,7 +89,7 @@ const AssessmentFormContent = () => {
           <div className="flex items-center justify-center">
             <button
               type="submit"
-              className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-teal-700 text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
             >
               Continue
             </button>

@@ -25,6 +25,8 @@ import Result1 from "./components/Profile/components/Result/TestResult/AptitudeT
 import RecognitionTest from "./components/Profile/components/Result/TestResult/RecognitionMemoryDashboard/maindashboard";
 import EmotionalIntelligenceTest from "./components/Profile/components/Resources/EmotionalIntelligenceTest";
 import StroopTest from "./components/Profile/components/Resources/StroopTest";
+import MainDashboard from "./components/Profile/components/Result/TestResult/MainResult.jsx/maindashboard";
+
 
 function App() {
   return (
@@ -55,6 +57,7 @@ function App() {
         <Route path="/RecognitionTest" element={<RecognitionTest />} />
         <Route path="/Emotional" element={<EmotionalIntelligenceTest />} />
         <Route path="stroop" element={<StroopTest />} />
+        <Route path="MainDashboard" element={<MainDashboard />} />
          
         </Routes>
     </Router>

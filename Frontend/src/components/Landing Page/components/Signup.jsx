@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../../firebase"; // Firebase config
 import { useNavigate } from "react-router-dom";
-import googleIcon from "../Landing-Page-Assets/illustration13.png"; // Path to your Google icon image
-import image1 from '../Landing-Page-Assets/illustration14.png'; // Your illustration image
+import googleIcon from "../Landing-Page-Assets/illustration13.png"; 
+import image1 from '../Landing-Page-Assets/illustration14.png'; 
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -32,9 +32,26 @@ function Signup() {
       return;
     }
 
-    // Add your signup logic here, such as using Firebase's createUserWithEmailAndPassword
-    console.log("User signed up:", { username, email, password });
-    navigate("/login"); // Redirect to login after signup
+    // Call backend API to store user data in MongoDB
+    fetch('http://localhost:5000/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, email, password }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log("User signed up:", { username, email, password });
+          navigate("/login"); // Redirect to login after signup
+        } else {
+          setError("Error signing up user");
+        }
+      })
+      .catch((error) => {
+        console.log("Error during signup:", error.message);
+        setError("Error signing up user");
+      });
   };
 
   return (

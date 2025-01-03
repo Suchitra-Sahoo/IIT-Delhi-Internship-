@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import logo from '../assets/LandingPage/Logo.png';
-import { Link } from 'react-router-dom';
-import { IoMdArrowDropdown } from 'react-icons/io';
-
+import React, { useState, useEffect } from "react";
+import logo from "../assets/LandingPage/Logo.png";
+import { Link } from "react-router-dom";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,14 +17,14 @@ function Navbar() {
   };
 
   useEffect(() => {
-    const storedUsername = localStorage.getItem('username');
+    const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
       setUsername(storedUsername);
     }
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('username');
+    localStorage.removeItem("username");
     setUsername(null);
     setIsDropdownOpen(false);
   };
@@ -46,7 +45,10 @@ function Navbar() {
             <div className="relative flex items-center space-x-2">
               <div className="avatar">
                 <div className="w-9 rounded">
-                  <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" alt="User Avatar" />
+                  <img
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                    alt="User Avatar"
+                  />
                 </div>
               </div>
               <span className="hidden md:block text-gray-900 dark:text-white font-semibold">
@@ -56,19 +58,23 @@ function Navbar() {
                 onClick={toggleDropdown}
                 className="ml-2 text-gray-700 cursor-pointer"
               />
-              
+
               {/* Dropdown menu */}
               {isDropdownOpen && (
-  <ul className="absolute top-full mt-2 left-0 menu bg-base-100 rounded-box w-52 p-2 shadow">
-    <li>
-      <Link to="/profile" onClick={() => setIsDropdownOpen(false)}>Profile</Link>
-    </li>
-    <li>
-      <button onClick={handleLogout}>Logout</button>
-    </li>
-  </ul>
-)}
-
+                <ul className="absolute top-full mt-2 left-0 menu bg-base-100 rounded-box w-52 p-2 shadow">
+                  <li>
+                    <Link
+                      to="/profile"
+                      onClick={() => setIsDropdownOpen(false)}
+                    >
+                      Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <button onClick={handleLogout}>Logout</button>
+                  </li>
+                </ul>
+              )}
             </div>
           ) : (
             <Link
@@ -105,45 +111,74 @@ function Navbar() {
         </div>
 
         <div
-          className={`${isMenuOpen ? 'block' : 'hidden'} w-full md:flex md:w-auto md:order-1 md:flex-row`}
+          className={`${
+            isMenuOpen ? "block" : "hidden"
+          } w-full md:flex md:w-auto md:order-1 md:flex-row`}
           id="navbar-sticky"
         >
           <ul className="flex flex-col p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
-              <Link to="/about" className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold" aria-current="page">
+              <Link
+                to="/about"
+                className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold"
+                aria-current="page"
+              >
                 About
               </Link>
             </li>
             <li>
-              <Link to="/features" className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold">
+              <Link
+                to="/features"
+                className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold"
+              >
                 Features
               </Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold">
+              <a
+                href="#"
+                className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold"
+              >
                 Pricing
               </a>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold">
+              <a
+                href="#"
+                className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold"
+              >
                 Contact
               </a>
             </li>
+            <li>
+              <Link
+                to="/resources"
+                className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold"
+              >
+                Resources
+              </Link>
+            </li>
             {username && (
               <li>
-                <button onClick={handleLogout} className="block py-2 px-2 text-gray-900 rounded md:p-0 dark:text-white font-semibold">
+                <button
+                  onClick={handleLogout}
+                  className="block py-2 px-2 text-gray-900 rounded md:p-0 dark:text-white font-semibold"
+                >
                   Logout
                 </button>
               </li>
             )}
             {!username && (
               <li>
-                <Link to="/login" className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold">
+                <Link
+                  to="/login"
+                  className="block py-2 px-3 text-gray-900 rounded md:p-0 dark:text-white font-semibold"
+                >
                   Login
                 </Link>
               </li>
             )}
-          </ul> 
+          </ul>
         </div>
       </div>
     </nav>

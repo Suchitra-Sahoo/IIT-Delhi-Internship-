@@ -37,9 +37,9 @@ function Testimonials() {
           {/* Right Section for Text */}
           <div className="flex-grow p-4 flex flex-col">
           <img
-                src={illustration4} // Use the actual image path for the small illustration
+                src={illustration4} 
                 alt="Small Illustration"
-                className="h-10 w-10 mr-3 mb-2" // Adjust the size as needed
+                className="h-10 w-10 mr-3 mb-2" 
               />
             <p className="text-gray-700 text-sm mb-2">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec orci nec quam placerat cursus sed suscipit purus. Curabitur dictum, libero non pharetra ultricies, metus libero.
@@ -54,7 +54,7 @@ function Testimonials() {
         <div className="bg-white rounded-lg shadow-lg w-72 flex flex-col mx-2 h-72">
           <div className="flex-shrink-0 w-full h-full">
             <img
-              src={illustration5} // Replace with the actual image path for the right card
+              src={illustration5} 
               alt="Testimonial"
               className="h-full w-full object-cover rounded-lg"
             />

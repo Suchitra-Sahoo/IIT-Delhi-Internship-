@@ -5,7 +5,6 @@ import Footer from '../../../Footer';
 import Sidebar from '../Sidebar'; // Assuming Sidebar is a separate component
 import { TfiMenuAlt } from 'react-icons/tfi';
 
-
 function Results() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 

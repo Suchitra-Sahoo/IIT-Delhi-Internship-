@@ -31,22 +31,32 @@ function Login() {
   };
 
   // Handle email and password login
-  const handleLoginWithEmailPassword = (e) => {
+  const handleLoginWithEmailPassword = async (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log('User logged in with email and password:', user);
+    try {
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        console.log('User logged in:', data.user);
         
         // Store the username in localStorage
-        localStorage.setItem('username', user.email);
+        localStorage.setItem('username', data.user.email);
 
         navigate('/'); // Redirect to homepage after successful login
-      })
-      .catch((error) => {
-        setError('Invalid email or password');
-        console.log('Error during login:', error.message);
-      });
+      } else {
+        setError(data.message);
+      }
+    } catch (error) {
+      setError('Error during login. Please try again.');
+      console.log('Error during login:', error.message);
+    }
   };
 
   // Handle password reset

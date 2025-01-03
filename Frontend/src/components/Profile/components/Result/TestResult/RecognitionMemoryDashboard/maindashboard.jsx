@@ -5,6 +5,7 @@ import Sidebar from '../../../Sidebar'; // Assuming Sidebar is a separate compon
 import { TfiMenuAlt } from 'react-icons/tfi';
 import RecognitionTest from './RecognitionTest';
 
+
 const MainDashboard = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const sidebarButtonRef = useRef(null);

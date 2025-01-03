@@ -1,66 +1,77 @@
-// Import the necessary modules
-import express from 'express';
-import mongoose from 'mongoose';
-import cors from 'cors';
+import express from "express";
+import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import cors from "cors";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
-// Create an Express application
 const app = express();
-const port = 5000;
+app.use(bodyParser.json());
+app.use(cors());
 
-// Use middleware
-app.use(cors()); // Enable CORS
-app.use(express.json()); // Parse JSON requests
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/intelliassess_user', { useNewUrlParser: true, useUnifiedTopology: true });
 
-// Connect to MongoDB for the first database (AnalysisLoginSignup)
-mongoose.connect('mongodb://localhost:27017/AnalysisLoginSignup', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-  .then(() => console.log('Connected to AnalysisLoginSignup MongoDB'))
-  .catch(err => console.error('Failed to connect to AnalysisLoginSignup MongoDB:', err));
-
-// Connect to MongoDB for the second database (MemoryGameLoginSignup)
-const memoryGameDb = mongoose.createConnection('mongodb://localhost:27017/MemoryGameLoginSignup', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+// Define a User schema
+const userSchema = new mongoose.Schema({
+  username: String,
+  email: String,
+  password: String,
 });
 
-memoryGameDb.once('open', () => {
-  console.log('Connected to MemoryGameLoginSignup MongoDB');
-});
+const User = mongoose.model('User', userSchema);
 
-// Define the schema and model for the 'loginconnections' collection for both databases
-const loginConnectionSchema = new mongoose.Schema({
-  fieldName1: String,
-  fieldName2: String,
-  // Add other fields as needed
-});
+// Handle user sign-up
+app.post('/signup', async (req, res) => {
+  const { username, email, password } = req.body;
 
-// Define models for both databases
-const LoginConnection = mongoose.model('LoginConnection', loginConnectionSchema);  // for AnalysisLoginSignup database
-const MemoryGameLoginConnection = memoryGameDb.model('LoginConnection', loginConnectionSchema);  // for MemoryGameLoginSignup database
-
-// Define a route to fetch the loginconnections data from the AnalysisLoginSignup database
-app.get('/api/loginconnections', async (req, res) => {
   try {
-    const data = await LoginConnection.find(); // Fetch all records from AnalysisLoginSignup
-    res.json(data); // Send the data as a JSON response
-  } catch (err) {
-    res.status(400).send('Error fetching data from AnalysisLoginSignup: ' + err.message);
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new User({ username, email, password: hashedPassword });
+    await newUser.save();
+    res.status(201).send('User signed up successfully');
+  } catch (error) {
+    res.status(500).send('Error signing up user');
   }
 });
 
-// Define a route to fetch the loginconnections data from the MemoryGameLoginSignup database
-app.get('/api/memorygame-loginconnections', async (req, res) => {
+// Handle user login
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
   try {
-    const data = await MemoryGameLoginConnection.find(); // Fetch all records from MemoryGameLoginSignup
-    res.json(data); // Send the data as a JSON response
-  } catch (err) {
-    res.status(400).send('Error fetching data from MemoryGameLoginSignup: ' + err.message);
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ message: 'Invalid email or password' });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Invalid email or password' });
+    }
+
+    const token = jwt.sign({ id: user._id }, 'your_jwt_secret', { expiresIn: '1h' });
+    res.json({ token, user: { id: user._id, username: user.username, email: user.email } });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
   }
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+// Fetch user details
+app.get('/user/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.json({ username: user.username });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+app.listen(5000, () => {
+  console.log('Server is running on port 5000');
 });

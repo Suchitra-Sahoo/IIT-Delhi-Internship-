@@ -55,7 +55,7 @@ function Section1() {
         <img
           src={image2}
           alt="Illustration 2"
-          className="mt-6 w-[22px] h-[22px] " // Adjust size and alignment to be smaller and towards the left
+          className="mt-6 w-[22px] h-[22px] " 
         />
       </div>
       <div></div>

@@ -57,7 +57,7 @@ function Profile() {
 
         {/* Profile content on the right side */}
         <div
-          className={`flex-1 bg-gray-100 ${isSidebarOpen ? "ml-0" : ""} w-full`}
+          className={`flex-1  ${isSidebarOpen ? "ml-0" : ""} w-full`}
         >
           <ProfileContent />
         </div>
